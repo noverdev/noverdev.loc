@@ -1,5 +1,5 @@
-import {Route, Switch,Redirect, Link} from 'react-router-dom';
 import * as React from "react";
+import {Route, Switch, Redirect, Link} from "react-router-dom";
 import Users from "./Users";
 
 type Props = {
@@ -27,7 +27,7 @@ class Test extends React.Component<Props, State> {
                     <Route path="/users" component={Users} />
                 </Switch>
             </div>
-        )
+        );
     }
 }
 

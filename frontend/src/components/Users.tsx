@@ -1,17 +1,11 @@
 import * as React from "react";
+import {User} from "../store/user/types";
 
 type Props = {};
 
 type State = {
     users: User[];
     loading: boolean;
-}
-
-interface User {
-    id: number;
-    imageURL: string;
-    name: string;
-    description: string;
 }
 
 class Users extends React.Component<Props, State> {
@@ -34,11 +28,11 @@ class Users extends React.Component<Props, State> {
             });
         }
         fetch(`/api/users`)
-            .then(res => res.json())
+            .then((res) => res.json())
             .then(result => this.setState({
                 users: result.users,
                 loading: false,
-            }))
+            }));
     }
 
     render() {
@@ -50,10 +44,10 @@ class Users extends React.Component<Props, State> {
                         <h2 className="text-center"><span>List of users</span></h2>
                     </div>
                     {loading ? (
-                        <div className={'row text-center'}>
+                        <div className={"row text-center"}>
                             <span className="fa fa-spin fa-spinner fa-4x"/>
                         </div>
-                    ) : (<div className={'row'}>
+                    ) : (<div className={"row"}>
                             {users.map(user =>
                                 <div className="col-md-10 offset-md-1 row-block" key={user.id}>
                                     <ul id="sortable">
@@ -79,7 +73,7 @@ class Users extends React.Component<Props, State> {
                     )}
                 </div>
             </section>
-        )
+        );
     }
 }
 
