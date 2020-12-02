@@ -1,11 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import Test from "./components/Test";
+
+//mainComponents
+import MainPage from "./pages/MainPage";
+
+//styles
+import 'bootstrap';
+
+import "../../public/build/app.css";
 
 ReactDOM.render(
     <Router>
-        <Test/>
+        <MainPage/>
     </Router>,
     document.getElementById("app")
 );

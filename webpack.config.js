@@ -13,6 +13,8 @@ Encore
 
     .enableReactPreset()
     .enableTypeScriptLoader()
+    // enables Sass/SCSS support
+    .enableSassLoader()
     // only needed for CDN"s or sub-directory deploy
     //.setManifestKeyPrefix("build/")
 
@@ -25,7 +27,10 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
-    .addEntry("app", "./frontend/src/index.tsx")
+    .addEntry("app", [
+        "./frontend/src/index.tsx",
+        "./assets/styles/global.scss"
+    ])
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
