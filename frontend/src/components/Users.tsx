@@ -1,4 +1,4 @@
-import * as React from "react";
+import React = require("react");
 import {User} from "../store/user/types";
 
 type Props = {};
@@ -29,7 +29,7 @@ class Users extends React.Component<Props, State> {
         }
         fetch(`/api/users`)
             .then((res) => res.json())
-            .then(result => this.setState({
+            .then((result) => this.setState({
                 users: result.users,
                 loading: false,
             }));
@@ -48,7 +48,7 @@ class Users extends React.Component<Props, State> {
                             <span className="fa fa-spin fa-spinner fa-4x"/>
                         </div>
                     ) : (<div className={"row"}>
-                            {users.map(user =>
+                            {users.map((user: User) =>
                                 <div className="col-md-10 offset-md-1 row-block" key={user.id}>
                                     <ul id="sortable">
                                         <li>
