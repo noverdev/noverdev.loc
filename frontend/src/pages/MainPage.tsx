@@ -1,6 +1,8 @@
 import * as React from "react";
-import NavBarComponent from "../components/NavBarComponent";
 import Routes from "./Routes";
+import NavBarComponent from "../components/NavBarComponent";
+import LeftNavBarMenu from "../components/LeftNavBarMenu";
+import {Col, Container, Row} from "react-bootstrap";
 
 type Props = {}
 
@@ -11,7 +13,16 @@ class MainPage extends React.Component<Props, State> {
         return (
             <React.Fragment>
                 <NavBarComponent/>
-                <Routes/>
+                <Container fluid>
+                    <Row>
+                        <Col md={3}>
+                            <LeftNavBarMenu/>
+                        </Col>
+                        <Col md={9}>
+                            <LeftNavBarMenu/>
+                        </Col>
+                    </Row>
+                </Container>
             </React.Fragment>
         );
     }

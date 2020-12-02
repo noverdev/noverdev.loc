@@ -4,15 +4,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 //mainComponents
 import MainPage from "./pages/MainPage";
+import Routes from "./pages/Routes";
 
 //styles
 import 'bootstrap';
-
-import "../../public/build/app.css";
+import "../../assets/styles/global.scss";
 
 ReactDOM.render(
     <Router>
         <MainPage/>
+        <Routes/>
     </Router>,
     document.getElementById("app")
 );

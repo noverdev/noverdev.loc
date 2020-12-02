@@ -15,8 +15,12 @@ class NavBarComponent extends React.Component<Props, State> {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <NavItem><Link to={"/"}>Home</Link></NavItem>
-                            <NavItem><Link to={"/"}>Admin Panel</Link></NavItem>
+                            <NavItem>
+                                <Link className="nav-link" to={"/"}>Home</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className="nav-link" to={"/admin"}>Admin Panel</Link>
+                            </NavItem>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Route, Switch, Redirect} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import SiteIndexPage from "./site/SiteIndexPage";
 import AdminIndexPage from "./admin/AdminIndexPage";
 
@@ -11,9 +11,8 @@ class Routes extends React.Component<Props, State> {
     render() {
         return (
             <Switch>
-                <Redirect exact from="/" to="/" />
-                <Route path="/" component={SiteIndexPage}/>
-                <Route path="/admin" component={AdminIndexPage}/>
+                <Route exact path="/"><SiteIndexPage/></Route>
+                <Route exact path="/admin"><AdminIndexPage/></Route>
             </Switch>
         );
     }

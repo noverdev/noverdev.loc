@@ -7,7 +7,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath("public/build/")
+    .setOutputPath("public/build")
     // public path used by the web server to access the output path
     .setPublicPath("/build")
 
@@ -27,10 +27,7 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
-    .addEntry("app", [
-        "./frontend/src/index.tsx",
-        "./assets/styles/global.scss"
-    ])
+    .addEntry("app", "./frontend/src/index.tsx")
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
