@@ -6,9 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Routes from "./pages/Routes";
 
-//styles
-import 'bootstrap';
-import "../../assets/styles/global.scss";
+import "../../assets/tailwind.css";
 
 ReactDOM.render(
     <Router>

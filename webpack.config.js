@@ -1,4 +1,4 @@
-var Encore = require("@symfony/webpack-encore");
+let Encore = require("@symfony/webpack-encore");
 
 // It"s useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -14,7 +14,7 @@ Encore
     .enableReactPreset()
     .enableTypeScriptLoader()
     // enables Sass/SCSS support
-    .enableSassLoader()
+    // .enableSassLoader()
     // only needed for CDN"s or sub-directory deploy
     //.setManifestKeyPrefix("build/")
 
@@ -28,7 +28,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry("app", "./frontend/src/index.tsx")
-
+    .addStyleEntry('tailwind', './assets/tailwind.css')
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
     // will require an extra script tag for runtime.js
