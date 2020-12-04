@@ -1,14 +1,12 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 //mainComponents
 import MainPage from "./pages/MainPage";
 import Routes from "./pages/Routes";
 
-import "../../assets/tailwind.css";
-
-ReactDOM.render(
+render(
     <Router>
         <MainPage/>
         <Routes/>
