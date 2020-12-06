@@ -7,7 +7,9 @@ type State = {}
 class SiteIndexPage extends React.Component<Props, State> {
     render() {
         return (
-            <h1>Site Index Page</h1>
+            <React.Fragment>
+                SiteIndex
+            </React.Fragment>
         );
     }
 }

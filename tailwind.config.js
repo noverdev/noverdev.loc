@@ -1,17 +1,18 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
+    fontFamily: {
+      sans: ['Graphic', 'sans-serif'],
+      serif: ['Merryweather', 'serif'],
     },
+    extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      borderColor: ['focus-visible'],
+      opacity: ['disabled'],
+    },
   },
   plugins: [
   ],
