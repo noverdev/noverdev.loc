@@ -1,11 +1,25 @@
 import * as React from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import AdminIndexPage from "./pages/admin/AdminIndexPage";
+import SiteIndexPage from "./pages/site/SiteIndexPage";
 
-render(
-    <Router>
-        <MainPage/>
-    </Router>,
-    document.getElementById("app")
-);
+//@ts-ignore
+window.renderAdminIndexPage = function renderAdminIndexPage(elementId: string) {
+    render(
+        <Router>
+            <AdminIndexPage/>
+        </Router>,
+        document.getElementById(elementId) as HTMLElement
+    );
+};
+
+//@ts-ignore
+window.renderSiteIndexPage = function renderSiteIndexPage(elementId: string) {
+    render(
+        <Router>
+            <SiteIndexPage/>
+        </Router>,
+        document.getElementById(elementId) as HTMLElement
+    );
+};

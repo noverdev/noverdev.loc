@@ -30,7 +30,7 @@ class SidebarMenu extends React.Component<Props, State> {
                             </Link>
                         </li>
                         <li className="mr-3 flex-1">
-                            <Link to={'#Users'}
+                            <Link to={'/admin/users'}
                                   className={'flex py-1 md:py-2 pl-1 align-middle text-white no-underline' +
                                   ' hover:text-white border-b-2 border-gray-800 hover:border-pink-500'}>
                                 <Users size={20} className="pr-2"/>
@@ -39,7 +39,7 @@ class SidebarMenu extends React.Component<Props, State> {
                             </Link>
                         </li>
                         <li className="mr-3 flex-1">
-                            <Link to={'#Permissions'}
+                            <Link to={'/admin/permissions'}
                                   className={'flex py-1 md:py-2 pl-1 align-middle text-white no-underline' +
                                   ' hover:text-white border-b-2 border-gray-800 hover:border-pink-500'}>
                                 <UserAdd size={20} className="pr-2"/>
@@ -48,7 +48,7 @@ class SidebarMenu extends React.Component<Props, State> {
                             </Link>
                         </li>
                         <li className="mr-3 flex-1">
-                            <Link to={'#Settings'}
+                            <Link to={'/admin/users/create'}
                                   className={'flex py-1 md:py-2 pl-1 align-middle text-white no-underline' +
                                   ' hover:text-white border-b-2 border-gray-800 hover:border-pink-500'}>
                                 <Adjustments size={20} className="pr-2"/>
