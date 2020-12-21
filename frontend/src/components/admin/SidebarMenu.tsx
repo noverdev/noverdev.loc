@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import {Adjustments, ClipboardList, DotsHorizontal, Home, UserAdd, UserAddOutline, Users} from "heroicons-react";
+import {Adjustments, Home, UserAdd, Users} from "heroicons-react";
 
 type Props = {}
 
