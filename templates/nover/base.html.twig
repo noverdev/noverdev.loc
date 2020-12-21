@@ -10,13 +10,13 @@
 </head>
 <body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
 {% block body %}
-    <div id="siteApp"></div>
+    <div id="app"></div>
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             if (window.renderSiteIndexPage) {
-                window.renderSiteIndexPage('siteApp');
+                window.renderSiteIndexPage('app');
             }
         });
     </script>
