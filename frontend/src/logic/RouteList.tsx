@@ -1,8 +1,7 @@
 import * as React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import AdminRoutes from "../../routes/AdminRoutes";
-import SiteRoutes from "../../routes/SiteRoutes";
-import NotFoundPage from "./NotFoundPage";
+import SiteRoutes from "../site/routes/SiteRoutes";
+import AdminRoutes from "../admin/routes/AdminRoutes";
 
 type Props = {}
 
@@ -15,7 +14,6 @@ class RouteList extends React.Component<Props, State> {
                 <Switch>
                     {SiteRoutes.map((route, index) => this.renderRoute(route, index))}
                     {AdminRoutes.map((route, index) => this.renderRoute(route, index))}
-                    <Route component={NotFoundPage}/>
                 </Switch>
             </Router>
         );
@@ -27,7 +25,13 @@ class RouteList extends React.Component<Props, State> {
                 key={index}
                 path={route.path}
                 exact={route.exact}
-                component={route.component}
+                component={(props => {
+                    return (
+                        <route.layout {...props}>
+                            <route.component {...props} />
+                        </route.layout>
+                    );
+                })}
             />
         );
     }
