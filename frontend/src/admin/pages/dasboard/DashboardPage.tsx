@@ -5,9 +5,15 @@ type Props = {}
 type State = {}
 
 class DashboardPage extends React.Component<Props, State> {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
-            <span>Dashboard Page</span>
+            <React.Fragment>
+                <span>Dashboard Page</span>
+            </React.Fragment>
         );
     }
 }
