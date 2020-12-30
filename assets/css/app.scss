@@ -1,3 +1,31 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.nover-admin-layout .bg-sidebar {
+  background: #3d68ff;
+}
+
+.nover-admin-layout .cta-btn {
+  color: #3d68ff;
+}
+
+.nover-admin-layout .upgrade-btn {
+  background: #1947ee;
+}
+
+.nover-admin-layout .upgrade-btn:hover {
+  background: #0038fd;
+}
+
+.nover-admin-layout .active-nav-link {
+  background: #1947ee;
+}
+
+.nover-admin-layout .nav-item:hover {
+  background: #1947ee;
+}
+
+.nover-admin-layout .account-link:hover {
+  background: #3d68ff;
+}
