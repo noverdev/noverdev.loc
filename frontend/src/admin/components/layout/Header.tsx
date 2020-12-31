@@ -1,4 +1,5 @@
 import * as React from "react";
+import Logo from "./Logo";
 
 type Props = {}
 
@@ -25,12 +26,7 @@ class Header extends React.Component<Props, State> {
 
                 <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
                     <div className="flex items-center justify-between">
-                        <a href="#"
-                           className="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
-                        <button className="text-white text-3xl focus:outline-none">
-                            <i className="fas fa-bars"/>
-                            <i className="fas fa-times"/>
-                        </button>
+                        <Logo/>
                     </div>
 
                     <nav className="flex flex-col pt-4">
