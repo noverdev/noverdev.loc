@@ -19,7 +19,7 @@ class AuthRoute extends React.Component<Props, State> {
         this.state = {
             isAuthed: !!localStorage.getItem('ACCESS_TOKEN'),
             message: "Please log in to view this page!",
-        }
+        };
     }
 
 

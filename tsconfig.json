@@ -6,6 +6,7 @@
     "lib": ["dom", "es2015", "es2016"],
     "jsx": "react"
   },
+  "no-use-before-define": ["error", { "functions": true, "classes": true }],
   "exclude": [
     "node_modules"
   ]

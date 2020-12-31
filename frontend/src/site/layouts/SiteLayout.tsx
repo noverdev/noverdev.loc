@@ -7,7 +7,7 @@ class SiteLayout extends React.Component {
                 Site Layout
                 {this.props.children}
             </React.Fragment>
-        )
+        );
     }
 }
 

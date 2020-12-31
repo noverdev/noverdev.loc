@@ -20,8 +20,7 @@ Encore
         useBuiltIns: "usage",
         corejs: 3
     })
-    .enableSassLoader(sassOptions => {
-    }, {
+    .enableSassLoader((sassOptions) => {}, {
         resolveUrlLoader: false
     })
     .enablePostCssLoader((options) => {

@@ -13,12 +13,12 @@ class Login extends React.Component<Props, State> {
         super(props);
         this.state = {
             redirect: false,
-        }
+        };
     }
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/admin"/>
+            return <Redirect to="/admin"/>;
         }
         return (
             <React.Fragment>

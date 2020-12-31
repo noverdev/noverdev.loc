@@ -15,7 +15,7 @@ class MenuItemDropdown extends React.Component<Props, State> {
         super(props);
         this.state = {
             isAdminMenu: false,
-        }
+        };
     }
 
     render() {

@@ -21,17 +21,13 @@ class Menu extends React.Component<Props, State> {
             <React.Fragment>
                 {items.map((item, index) => {
                     if (item.type === MenuTypes.itemTitle) {
-                        return <MenuItemTitle key={index} item={item} />;
-                    }
-                    if (item.type === MenuTypes.itemMenu) {
-                        return <MenuItem key={index} item={item} />;
-                    }
-                    if (item.type === MenuTypes.itemMenuCounter) {
-                        return <MenuItemCounter key={index} item={item} />;
-                    }
-
-                    if (item.type === MenuTypes.itemMenuDropdown) {
-                        return <MenuItemDropdown key={index} item={item} />;
+                        return <MenuItemTitle key={index} item={item}/>;
+                    } else if (item.type === MenuTypes.itemMenu) {
+                        return <MenuItem key={index} item={item}/>;
+                    } else if (item.type === MenuTypes.itemMenuCounter) {
+                        return <MenuItemCounter key={index} item={item}/>;
+                    } else if (item.type === MenuTypes.itemMenuDropdown) {
+                        return <MenuItemDropdown key={index} item={item}/>;
                     }
                 })}
             </React.Fragment>
