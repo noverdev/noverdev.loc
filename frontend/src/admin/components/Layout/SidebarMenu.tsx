@@ -11,7 +11,7 @@ class SidebarMenu extends React.Component<Props, State> {
     render() {
         return (
             <aside className="relative bg-gray-700 h-screen w-64 hidden sm:block shadow-xl">
-                <div className="p-6 flex items-center bg-gray-600">
+                <div className="p-4 flex items-center bg-gray-600">
                     <Logo/>
                 </div>
                 <nav className="text-white text-base font-semibold pt-3">

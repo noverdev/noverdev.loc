@@ -11,8 +11,7 @@ import {
 } from "heroicons-react";
 import {MenuTypes} from "./types";
 
-const indexPath = '/work-space';
-const adminPath = indexPath + '/admin';
+const indexPath = '/admin';
 
 export default [
     {
@@ -53,20 +52,20 @@ export default [
         children: [
             {
                 type: MenuTypes.itemMenuCounter,
-                path: adminPath + '/users',
+                path: indexPath + '/users',
                 icon: Users,
                 title: "Users",
                 counter: 4,
             },
             {
                 type: MenuTypes.itemMenu,
-                path: adminPath + '/roles',
+                path: indexPath + '/roles',
                 icon: UserGroup,
                 title: "Roles",
             },
             {
                 type: MenuTypes.itemMenu,
-                path: adminPath + '/permissions',
+                path: indexPath + '/permissions',
                 icon: Adjustments,
                 title: "Permissions",
             },

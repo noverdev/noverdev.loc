@@ -1,5 +1,6 @@
 import * as React from "react";
 import Logo from "./Logo";
+import {Search} from "heroicons-react";
 
 type Props = {}
 
@@ -9,11 +10,22 @@ class Header extends React.Component<Props, State> {
     render() {
         return (
             <React.Fragment>
-                <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex">
-                    <div className="w-1/2"/>
+                <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex border-b-2 border-gray-100">
+                    <div className="relative w-1/2 flex">
+                        <div className="relative text-gray-600 focus-within:text-gray-400">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-1">
+                                <Search size={20}/>
+                            </span>
+                            <input
+                                type="search" name="q" placeholder="Search..." autoComplete="off"
+                                className="py-2 text-sm text-white bg-gray-200 rounded-md pl-7 focus:outline-none focus:bg-opacity-50 focus:text-black"
+                            />
+                        </div>
+                    </div>
                     <div className="relative w-1/2 flex justify-end">
                         <button
-                            className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                            className={'relative z-60 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400' +
+                            'hover:border-gray-300 focus:border-gray-300 focus:outline-none'}>
                             <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" alt=""/>
                         </button>
                         <div className="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
@@ -24,7 +36,7 @@ class Header extends React.Component<Props, State> {
                     </div>
                 </header>
 
-                <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
+                <header className="fixed bg-blue-600 shadow-md  z-50 w-full px-5 py-2 flex justify-between items-center sm:hidden">
                     <div className="flex items-center justify-between">
                         <Logo/>
                     </div>

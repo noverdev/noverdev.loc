@@ -12,7 +12,8 @@ class MenuItemTitle extends React.Component<Props, State> {
         let {item} = this.props;
         return (
             <div className="py-3 pl-6">
-                <span className="text-2xl text-gray-50">{item.title}</span>
+                <span className="text-gray-200">{item.title}</span>
+                <hr/>
             </div>
         );
     }
