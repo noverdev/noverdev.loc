@@ -10,7 +10,7 @@ class Logo extends React.Component<Props, State> {
         return (
             <React.Fragment>
                 <Fire size={30} color={'orange'}/>
-                <a href="/" className="text-white text-2xl font-semibold uppercase hover:text-gray-300">NoverDev</a>
+                <span className="text-white text-2xl mx-2 font-semibold uppercase">NoverDev</span>
             </React.Fragment>
         );
     }

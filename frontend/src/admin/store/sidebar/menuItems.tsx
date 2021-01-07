@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
     Adjustments,
     ChevronDown,
@@ -15,21 +14,10 @@ const indexPath = '/admin';
 
 export default [
     {
-        type: MenuTypes.itemTitle,
-        title: 'Main'
-    },
-    {
         type: MenuTypes.itemMenu,
         path: indexPath,
         icon: Home,
         title: "Dashboard",
-    },
-    {
-        type: MenuTypes.itemMenuCounter,
-        path: indexPath + '/my-tasks',
-        icon: ClipboardCheck,
-        title: "My Tasks",
-        counter: 4,
     },
     {
         type: MenuTypes.itemMenu,
@@ -38,8 +26,11 @@ export default [
         title: "Tasks",
     },
     {
-        type: MenuTypes.itemTitle,
-        title: 'Admin Menu'
+        type: MenuTypes.itemMenu,
+        path: indexPath + '/my-tasks',
+        icon: ClipboardCheck,
+        title: "My Tasks",
+        counter: 234,
     },
     {
         type: MenuTypes.itemMenuDropdown,
@@ -51,7 +42,7 @@ export default [
         },
         children: [
             {
-                type: MenuTypes.itemMenuCounter,
+                type: MenuTypes.itemMenu,
                 path: indexPath + '/users',
                 icon: Users,
                 title: "Users",

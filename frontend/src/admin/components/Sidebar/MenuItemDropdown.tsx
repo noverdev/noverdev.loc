@@ -27,12 +27,12 @@ class MenuItemDropdown extends React.Component<Props, State> {
         return (
             <React.Fragment>
                 <a href="#admin" onClick={() => this.setState({isAdminMenu: !this.state.isAdminMenu})}
-                   className="flex items-center text-white hover:opacity-100 py-3 pl-6 nav-item bg-gray-700 hover:bg-gray-900"
+                   className={`flex items-center mt-1 py-2 px-6 ${this.state.isAdminMenu ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500'} hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100`}
                 >
                     {icon} {item.title} {this.renderAdminChevron()}
                 </a>
                 <div
-                    className={`absolute right-0 w-full origin-top-right ${this.state.isAdminMenu ? '' : 'hidden'}`}>
+                    className={`w-full origin-top-right ${this.state.isAdminMenu ? '' : 'hidden'}`}>
                     <div className="py-2 pl-2">
                         <Menu items={item.children}/>
                     </div>
