@@ -1,98 +1,126 @@
 import * as React from "react";
 import Logo from "./Logo";
-import {Search} from "heroicons-react";
+import {Bell, Menu} from "heroicons-react";
 
 type Props = {}
 
-type State = {}
+type State = {
+    isOpenUserMenu: boolean;
+}
 
 class Header extends React.Component<Props, State> {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isOpenUserMenu: false,
+        }
+    }
+
+
     render() {
+        let {isOpenUserMenu} = this.state;
+        let classesUserMenu = `origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1' +
+            'bg-white ring-1 ring-black ring-opacity-5 ${isOpenUserMenu ? '' : 'hidden'}`;
         return (
             <React.Fragment>
-                <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex border-b-2 border-gray-100">
-                    <div className="relative w-1/2 flex">
-                        <div className="relative text-gray-600 focus-within:text-gray-400">
-                            <span className="absolute inset-y-0 left-0 flex items-center pl-1">
-                                <Search size={20}/>
-                            </span>
-                            <input
-                                type="search" name="q" placeholder="Search..." autoComplete="off"
-                                className="py-2 text-sm text-white bg-gray-200 rounded-md pl-7 focus:outline-none focus:bg-opacity-50 focus:text-black"
-                            />
+                <nav className="bg-gray-800">
+                    <div className="px-2 sm:px-6 lg:px-8">
+                        <div className="relative flex items-center justify-between h-16">
+                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                                <button className="inline-flex items-center justify-center p-2 rounded-md
+                                text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2
+                                focus:ring-inset focus:ring-white" aria-expanded="false">
+                                    <span className="sr-only">Open main menu</span>
+                                    <Menu className="block h-6 w-6" size={24}/>
+                                </button>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                <div className="flex-shrink-0 flex items-center">
+                                    <Logo/>
+                                </div>
+                                <div className="hidden sm:block sm:ml-6">
+                                    <div className="flex space-x-4">
+                                        <a href="#"
+                                           className="bg-gray-900 text-white px-3 py-2
+                                           rounded-md text-sm font-medium"
+                                        >Dashboard</a>
+                                        <a href="#"
+                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
+                                           px-3 py-2 rounded-md text-sm font-medium"
+                                        >Team</a>
+                                        <a href="#"
+                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
+                                           px-3 py-2 rounded-md text-sm font-medium"
+                                        >Projects</a>
+                                        <a href="#"
+                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
+                                           px-3 py-2 rounded-md text-sm font-medium"
+                                        >Calendar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static
+                                sm:inset-auto sm:ml-6 sm:pr-0">
+                                <button
+                                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white
+                                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800
+                                    focus:ring-white">
+                                    <span className="sr-only">View notifications</span>
+                                    <Bell size={24} className="h-6 w-6"/>
+                                </button>
+                                <div className="ml-3 relative">
+                                    <div>
+                                        <button
+                                            className="bg-gray-800 flex text-sm rounded-full focus:outline-none
+                                            focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                            id="user-menu" aria-haspopup="true"
+                                            onClick={() => this.setState({
+                                                isOpenUserMenu: !isOpenUserMenu,
+                                            })}>
+                                            <span className="sr-only">Open user menu</span>
+                                            <img className="h-8 w-8 rounded-full"
+                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                 alt=""/>
+                                        </button>
+                                    </div>
+                                    <div
+                                        className={classesUserMenu}
+                                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                           role="menuitem">Your Profile</a>
+                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                           role="menuitem">Settings</a>
+                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                           role="menuitem">Sign out</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="relative w-1/2 flex justify-end">
-                        <button
-                            className={'relative z-60 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400' +
-                            'hover:border-gray-300 focus:border-gray-300 focus:outline-none'}>
-                            <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" alt=""/>
-                        </button>
-                        <div className="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                            <a href="#" className="block px-4 py-2 account-link hover:text-white">Account</a>
-                            <a href="#" className="block px-4 py-2 account-link hover:text-white">Support</a>
-                            <a href="#" className="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+
+                    <div className="hidden sm:hidden">
+                        <div className="px-2 pt-2 pb-3 space-y-1">
+                            <a href="#"
+                               className="bg-gray-900 text-white block px-3 py-2 rounded-md
+                               text-base font-medium"
+                            >Dashboard</a>
+                            <a href="#"
+                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
+                               rounded-md text-base font-medium"
+                            >Team</a>
+                            <a href="#"
+                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
+                               rounded-md text-base font-medium"
+                            >Projects</a>
+                            <a href="#"
+                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
+                               rounded-md text-base font-medium"
+                            >Calendar</a>
                         </div>
                     </div>
-                </header>
-
-                <header className="fixed bg-blue-600 shadow-md  z-50 w-full px-5 py-2 flex justify-between items-center sm:hidden">
-                    <div className="flex items-center justify-between">
-                        <Logo/>
-                    </div>
-
-                    <nav className="flex flex-col pt-4">
-                        <a href="#"
-                           className="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
-                            <i className="fas fa-tachometer-alt mr-3"/>
-                            Dashboard
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-sticky-note mr-3"/>
-                            Blank Page
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-table mr-3"/>
-                            Tables
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-align-left mr-3"/>
-                            Forms
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-tablet-alt mr-3"/>
-                            Tabbed Content
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-calendar mr-3"/>
-                            Calendar
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-cogs mr-3"/>
-                            Support
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-user mr-3"/>
-                            My Account
-                        </a>
-                        <a href="#"
-                           className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                            <i className="fas fa-sign-out-alt mr-3"/>
-                            Sign Out
-                        </a>
-                        <button
-                            className="w-full bg-white cta-btn font-semibold py-2 mt-3 rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                            <i className="fas fa-arrow-circle-up mr-3"/> Upgrade to Pro!
-                        </button>
-                    </nav>
-                </header>
+                </nav>
             </React.Fragment>
         );
     }
