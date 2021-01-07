@@ -1,11 +1,11 @@
 import * as React from "react";
-import Logo from "./Logo";
-import {Bell, Menu} from "heroicons-react";
+import {Bell, Menu, Search} from "heroicons-react";
 
 type Props = {}
 
 type State = {
     isOpenUserMenu: boolean;
+    isOpenSearchInput: boolean;
 }
 
 class Header extends React.Component<Props, State> {
@@ -14,14 +14,13 @@ class Header extends React.Component<Props, State> {
 
         this.state = {
             isOpenUserMenu: false,
+            isOpenSearchInput: false,
         }
     }
 
 
     render() {
-        let {isOpenUserMenu} = this.state;
-        let classesUserMenu = `origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1' +
-            'bg-white ring-1 ring-black ring-opacity-5 ${isOpenUserMenu ? '' : 'hidden'}`;
+        let {isOpenUserMenu, isOpenSearchInput} = this.state;
         return (
             <React.Fragment>
                 <nav className="bg-gray-800">
@@ -35,28 +34,19 @@ class Header extends React.Component<Props, State> {
                                     <Menu className="block h-6 w-6" size={24}/>
                                 </button>
                             </div>
-                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex-shrink-0 flex items-center">
-                                    <Logo/>
-                                </div>
-                                <div className="hidden sm:block sm:ml-6">
-                                    <div className="flex space-x-4">
-                                        <a href="#"
-                                           className="bg-gray-900 text-white px-3 py-2
-                                           rounded-md text-sm font-medium"
-                                        >Dashboard</a>
-                                        <a href="#"
-                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
-                                           px-3 py-2 rounded-md text-sm font-medium"
-                                        >Team</a>
-                                        <a href="#"
-                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
-                                           px-3 py-2 rounded-md text-sm font-medium"
-                                        >Projects</a>
-                                        <a href="#"
-                                           className="text-gray-300 hover:bg-gray-700 hover:text-white
-                                           px-3 py-2 rounded-md text-sm font-medium"
-                                        >Calendar</a>
+                            <div className="flex-1">
+                                <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
+                                    <div className="md:flex">
+                                        <div className="w-full p-3">
+                                            <div className="relative">
+                                                <Search className="absolute text-gray-400 top-4 left-4 pointer-events-none"/>
+                                                <input type="text"
+                                                       className="bg-white h-14 w-1/2 px-12 rounded-lg
+                                                       focus:outline-none hover:cursor-pointer sm:w-full"
+                                                       placeholder="Search...."
+                                                       name=""/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +54,17 @@ class Header extends React.Component<Props, State> {
                                 className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static
                                 sm:inset-auto sm:ml-6 sm:pr-0">
                                 <button
-                                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white
+                                    className="bg-gray-800 p-1 rounded-full ml-3 text-gray-400 hover:text-white
+                                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800
+                                    focus:ring-white"
+                                    onClick={() => this.setState({
+                                        isOpenSearchInput: !isOpenSearchInput,
+                                    })}>
+                                    <span className="sr-only">View search field</span>
+                                    <Search size={24} className="h-6 w-6"/>
+                                </button>
+                                <button
+                                    className="bg-gray-800 p-1 rounded-full ml-3 text-gray-400 hover:text-white
                                     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800
                                     focus:ring-white">
                                     <span className="sr-only">View notifications</span>
@@ -75,7 +75,7 @@ class Header extends React.Component<Props, State> {
                                         <button
                                             className="bg-gray-800 flex text-sm rounded-full focus:outline-none
                                             focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                            id="user-menu" aria-haspopup="true"
+                                            aria-haspopup="true"
                                             onClick={() => this.setState({
                                                 isOpenUserMenu: !isOpenUserMenu,
                                             })}>
@@ -85,39 +85,24 @@ class Header extends React.Component<Props, State> {
                                                  alt=""/>
                                         </button>
                                     </div>
-                                    <div
-                                        className={classesUserMenu}
-                                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                           role="menuitem">Your Profile</a>
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                           role="menuitem">Settings</a>
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                           role="menuitem">Sign out</a>
+                                    <div className={isOpenUserMenu ? '' : 'hidden'}>
+                                        <div
+                                            className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg
+                                        py-1 bg-white ring-1 ring-black ring-opacity-5"
+                                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                            <a href="#"
+                                               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                               role="menuitem">Your Profile</a>
+                                            <a href="#"
+                                               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                               role="menuitem">Settings</a>
+                                            <a href="#"
+                                               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                               role="menuitem">Sign out</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="hidden sm:hidden">
-                        <div className="px-2 pt-2 pb-3 space-y-1">
-                            <a href="#"
-                               className="bg-gray-900 text-white block px-3 py-2 rounded-md
-                               text-base font-medium"
-                            >Dashboard</a>
-                            <a href="#"
-                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
-                               rounded-md text-base font-medium"
-                            >Team</a>
-                            <a href="#"
-                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
-                               rounded-md text-base font-medium"
-                            >Projects</a>
-                            <a href="#"
-                               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2
-                               rounded-md text-base font-medium"
-                            >Calendar</a>
                         </div>
                     </div>
                 </nav>
