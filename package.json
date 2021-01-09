@@ -6,7 +6,7 @@
         "@typescript-eslint/eslint-plugin": "^4.11.0",
         "@typescript-eslint/parser": "^4.11.0",
         "autoprefixer": "^10.1.0",
-        "axios": "^0.21.0",
+        "axios": "^0.21.1",
         "core-js": "^3.8.1",
         "eslint": "^7.15.0",
         "glob-all": "^3.2.1",
