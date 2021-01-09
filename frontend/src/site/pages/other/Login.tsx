@@ -1,4 +1,3 @@
-import Button from "@material-ui/core/Button";
 import * as React from "react";
 import {Redirect} from "react-router-dom";
 
@@ -23,9 +22,12 @@ class Login extends React.Component<Props, State> {
         return (
             <React.Fragment>
                 <h1>Login Page</h1>
-                <Button variant="contained" color="primary" onClick={() => this.onLogin()}>
+                <button
+                    className="p-2 bg-green-500 rounded text-white border border-green-500 hover:text-green-500 hover:bg-white"
+                    onClick={() => this.onLogin()}
+                >
                     Login
-                </Button>
+                </button>
             </React.Fragment>
         );
     }

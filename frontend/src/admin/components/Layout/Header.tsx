@@ -1,3 +1,4 @@
+import {Search} from "heroicons-react";
 import * as React from "react";
 
 type Props = {};
@@ -29,24 +30,28 @@ class Header extends React.Component<Props, State> {
                                       strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </button>
-                        <div className="relative mx-4 lg:mx-0">
+                        <div className="relative mx-4 hidden lg:mx-0 sm:block">
                             <span className="absolute inset-y-0 left-0 pl-3 flex items-center">
                                 <svg className="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
-                                  <path
-                                      d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                                      stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                      strokeLinejoin="round"/>
+                                    <path
+                                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                        stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                        strokeLinejoin="round"/>
                                 </svg>
                             </span>
                             <input className="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 focus:border-indigo-600"
-                                   type="text"
-                                   placeholder="Search"/>
+                                   type="text" placeholder="Search"/>
                         </div>
                     </div>
 
                     <div className="flex items-center">
-                        <div className="relative">
-                            <button className="flex mx-4 text-gray-600 focus:outline-none"
+                        <div className="relative flex">
+                            <button className="flex text-gray-600 focus:outline-none sm:hidden"
+                                    onClick={() => this.setState({isOpenNotifications: !isOpenNotifications})}>
+                                <Search/>
+                            </button>
+
+                            <button className="flex ml-4 text-gray-600 focus:outline-none"
                                     onClick={() => this.setState({isOpenNotifications: !isOpenNotifications})}>
                                 <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -57,10 +62,11 @@ class Header extends React.Component<Props, State> {
                                 </svg>
                             </button>
 
-                            <div className="fixed inset-0 h-full w-full z-10" style={{display: "none"}}/>
+                            <div className={`fixed inset-0 h-full w-full z-10 ${isOpenNotifications ? "" : "hidden"}`}
+                                 onClick={() => this.setState({isOpenNotifications: false})}/>
 
                             <div
-                                className={`absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10 ${isOpenNotifications ? '' : 'hidden'}`}>
+                                className={`absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10 ${isOpenNotifications ? "" : "hidden"}`}>
                                 <a href="#"
                                    className="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
                                     <img className="h-8 w-8 rounded-full object-cover mx-1"
@@ -103,7 +109,7 @@ class Header extends React.Component<Props, State> {
                             </div>
                         </div>
 
-                        <div className="relative">
+                        <div className="relative ml-4">
                             <button
                                 className="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none"
                                 onClick={() => this.setState({isOpenUserMenu: !isOpenUserMenu})}>
@@ -112,7 +118,8 @@ class Header extends React.Component<Props, State> {
                                      alt="Your avatar"/>
                             </button>
 
-                            <div className="fixed inset-0 h-full w-full z-10" style={{display: "none"}}/>
+                            <div className={`fixed inset-0 h-full w-full z-10 ${isOpenUserMenu ? "" : "hidden"}`}
+                                 onClick={() => this.setState({isOpenUserMenu: false})}/>
 
                             <div
                                 className={`absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10 ${isOpenUserMenu ? "" : "hidden"}`}>

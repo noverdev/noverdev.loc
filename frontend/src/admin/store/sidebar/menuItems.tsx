@@ -49,10 +49,34 @@ export default [
                 counter: 4,
             },
             {
-                type: MenuTypes.itemMenu,
-                path: indexPath + '/roles',
-                icon: UserGroup,
-                title: "Roles",
+                type: MenuTypes.itemMenuDropdown,
+                icon: Adjustments,
+                title: "Administration",
+                dropDownIcons: {
+                    up: ChevronUp,
+                    down: ChevronDown,
+                },
+                children: [
+                    {
+                        type: MenuTypes.itemMenu,
+                        path: indexPath + '/users',
+                        icon: Users,
+                        title: "Users",
+                        counter: 4,
+                    },
+                    {
+                        type: MenuTypes.itemMenu,
+                        path: indexPath + '/roles',
+                        icon: UserGroup,
+                        title: "Roles",
+                    },
+                    {
+                        type: MenuTypes.itemMenu,
+                        path: indexPath + '/permissions',
+                        icon: Adjustments,
+                        title: "Permissions",
+                    },
+                ]
             },
             {
                 type: MenuTypes.itemMenu,
