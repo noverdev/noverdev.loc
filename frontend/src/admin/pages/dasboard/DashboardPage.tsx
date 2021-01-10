@@ -13,7 +13,7 @@ class DashboardPage extends React.Component<Props, State> {
     render() {
         return (
             <div className="container mx-auto px-6 py-8">
-                <PageTitle>Dasboard Page</PageTitle>
+                <PageTitle>Dashboard</PageTitle>
                 <div className="mt-4">
                     <div className="flex flex-wrap -mx-6">
                         <div className="w-full px-6 sm:w-1/2 xl:w-1/3">

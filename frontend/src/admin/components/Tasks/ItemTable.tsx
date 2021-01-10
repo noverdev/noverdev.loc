@@ -22,7 +22,7 @@ class ItemTable extends React.Component<Props, State> {
     render() {
         return (
             <tr className="bg-white hover:bg-gray-100">
-                <td className="p-2 border-b border-gray-200 bg-red-400"/>
+                {/*<td className="p-2 border-b border-gray-200 bg-red-400"/>*/}
                 <td className="px-6 py-1 whitespace-no-wrap border-b border-gray-200">
                     <div className="flex items-center">
                         <div>
