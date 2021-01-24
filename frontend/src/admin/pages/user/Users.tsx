@@ -1,7 +1,6 @@
 import * as React from "react";
-import PageTitle from "../../components/Commons/PageTitle";
 import Items from "../../components/Users/Items";
-import {ArrowLeft, ChevronLeft, ChevronRight} from "heroicons-react";
+import PageTitle from "../../components/Commons/PageTitle";
 import Navigation from "../../components/Commons/Navigation";
 
 type Props = {};
@@ -55,10 +54,9 @@ class Users extends React.Component<Props, State> {
                     <div className="flex flex-col">
                         <div
                             className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                            <div
-                                className="align-middle inline-block min-w-full shadow overflow-hidden
-                    sm:rounded-lg border-b border-gray-200">
-                                <Items tasks={[]}/>
+                            <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg
+                            border-b border-gray-200">
+                                <Items items={[]}/>
                             </div>
                         </div>
                         <Navigation/>
