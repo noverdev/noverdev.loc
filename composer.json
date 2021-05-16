@@ -1,10 +1,10 @@
 {
-    "name": "nover/revon.loc",
+    "name": "nover/revon",
     "description": "",
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": ">=7.3",
+        "php": "8.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -17,7 +17,7 @@
         "doctrine/orm": "^2.7",
         "nelmio/cors-bundle": "^2.1",
         "phpdocumentor/reflection-docblock": "^5.2",
-        "sensio/framework-extra-bundle": "^5.6",
+        "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",
@@ -48,6 +48,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.85",
         "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "^5.1",
         "symfony/css-selector": "^5.1",

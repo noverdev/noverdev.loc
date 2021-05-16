@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Fire} from "heroicons-react";
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 
 type Props = {}
 
@@ -9,8 +9,8 @@ class Logo extends React.Component<Props, State> {
     render() {
         return (
             <React.Fragment>
-                <Fire size={30} color={'orange'}/>
-                <span className="text-white text-2xl mx-2 font-semibold uppercase">NoverDev</span>
+                <WhatshotIcon style={{fontSize: 30, color: "orange"}}/>
+                <span>NoverDev</span>
             </React.Fragment>
         );
     }

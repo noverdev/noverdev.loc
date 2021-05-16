@@ -1,30 +1,117 @@
 import * as React from "react";
-import Logo from "./Logo";
-import Menu from "../Sidebar/Menu";
+import {
+    Divider,
+    Drawer,
+    IconButton,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    useTheme
+} from "@material-ui/core";
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {
+    Inbox as InboxIcon,
+    Mail as MailIcon,
+    ChevronRight as ChevronRightIcon,
+    ChevronLeft as ChevronLeftIcon
+} from "@material-ui/icons";
+import clsx from "clsx";
 import menuItems from "../../store/sidebar/menuItems";
 
-type Props = {};
+export const drawerWidth = 240;
 
-type State = {};
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        drawer: {
+            width: drawerWidth,
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
+        },
+        drawerOpen: {
+            width: drawerWidth,
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        },
+        drawerClose: {
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+            overflowX: 'hidden',
+            width: theme.spacing(7) + 1,
+            [theme.breakpoints.up('sm')]: {
+                width: theme.spacing(9) + 1,
+            },
+        },
+        toolbar: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            padding: theme.spacing(0, 1),
+            // necessary for content to be below app bar
+            ...theme.mixins.toolbar,
+        },
+    }),
+);
 
-class SidebarMenu extends React.Component<Props, State> {
-  render() {
+interface Props {
+    isShown: boolean;
+    onClose: () => void;
+}
+
+export const SidebarMenu: React.FC<Props> = (
+    {
+        isShown,
+        onClose,
+    }
+) => {
+    const classes = useStyles();
+    const theme = useTheme();
+
     return (
-      <React.Fragment>
-        {/* <div className="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"/> */}
-        <div className="fixed z-30 inset-y-0 left-0 w-64 hidden transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0 lg:block">
-          <div className="flex items-center justify-center mt-8">
-            <div className="flex items-center">
-                <Logo/>
+        <Drawer
+            variant="permanent"
+            className={clsx(classes.drawer, {
+                [classes.drawerOpen]: isShown,
+                [classes.drawerClose]: !isShown,
+            })}
+            classes={{
+                paper: clsx({
+                    [classes.drawerOpen]: isShown,
+                    [classes.drawerClose]: !isShown,
+                }),
+            }}
+        >
+            <div className={classes.toolbar}>
+                <IconButton onClick={onClose}>
+                    {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
+                </IconButton>
             </div>
-          </div>
-          <nav className="mt-10 pb-6">
-            <Menu items={menuItems}/>
-          </nav>
-        </div>
-      </React.Fragment>
+            <Divider/>
+            <List>
+                {menuItems.map((item) => (
+                    <ListItem button key={item.title}>
+                        <ListItemIcon>
+                            <item.icon/>
+                        </ListItemIcon>
+                        <ListItemText primary={item.title}/>
+                    </ListItem>
+                ))}
+            </List>
+            <Divider/>
+            <List>
+                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                        <ListItemText primary={text}/>
+                    </ListItem>
+                ))}
+            </List>
+        </Drawer>
     );
-  }
 }
 
 export default SidebarMenu;

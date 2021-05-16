@@ -22,10 +22,7 @@ class Login extends React.Component<Props, State> {
         return (
             <React.Fragment>
                 <h1>Login Page</h1>
-                <button
-                    className="p-2 bg-green-500 rounded text-white border border-green-500 hover:text-green-500 hover:bg-white"
-                    onClick={() => this.onLogin()}
-                >
+                <button onClick={() => this.onLogin()}>
                     Login
                 </button>
             </React.Fragment>

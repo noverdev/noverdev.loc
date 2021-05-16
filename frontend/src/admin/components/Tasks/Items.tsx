@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Task} from "../../store/task/types";
-import ItemTable from "./ItemTable";
+import {ItemTable} from "./ItemTable";
 
 type Props = {
     tasks: Task[];
@@ -15,31 +15,31 @@ class Items extends React.Component<Props, State> {
                 <thead>
                 <tr>
                     {/*<th className="p-2 border-b border-gray-200 bg-gray-50 tracking-wider"/>*/}
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         ID
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Actions
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Task
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Status
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Time
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Executor
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Initiator
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Created At
                     </th>
-                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 text-gray-500 uppercase tracking-wider">
+                    <th>
                         Updated At
                     </th>
                 </tr>

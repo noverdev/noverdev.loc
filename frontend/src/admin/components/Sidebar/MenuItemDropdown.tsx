@@ -26,13 +26,10 @@ class MenuItemDropdown extends React.Component<Props, State> {
         }
         return (
             <React.Fragment>
-                <a href="#admin" onClick={() => this.setState({isAdminMenu: !this.state.isAdminMenu})}
-                   className={`flex items-center mt-1 py-2 px-6 ${this.state.isAdminMenu ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500'} hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100`}
-                >
+                <a href="#admin" onClick={() => this.setState({isAdminMenu: !this.state.isAdminMenu})}>
                     {icon} {item.title} {this.renderAdminChevron()}
                 </a>
-                <div
-                    className={`w-full origin-top-right ${this.state.isAdminMenu ? '' : 'hidden'}`}>
+                <div>
                     <div className="py-2 pl-2">
                         <Menu items={item.children}/>
                     </div>
@@ -46,11 +43,11 @@ class MenuItemDropdown extends React.Component<Props, State> {
         let {isAdminMenu} = this.state;
         if (isAdminMenu) {
             return (
-                <item.dropDownIcons.up size={20} className="mr-3"/>
+                <item.dropDownIcons.up className="mr-3" style={{fontSize: 20}}/>
             );
         }
         return (
-            <item.dropDownIcons.down size={20} className="mr-3"/>
+            <item.dropDownIcons.down className="mr-3" style={{fontSize: 20}}/>
         );
     }
 }

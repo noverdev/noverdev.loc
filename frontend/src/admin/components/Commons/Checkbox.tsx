@@ -1,18 +1,17 @@
 import * as React from "react";
+import {Checkbox} from "@material-ui/core";
 
-type Props = {}
+export const CustomCheckbox: React.FC = () =>  {
+    const [checked, setChecked] = React.useState(true);
 
-type State = {}
-
-class Checkbox extends React.Component<Props, State> {
-    render() {
-        return (
-            <input
-                type="checkbox"
-                className="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600
-                checked:border-transparent focus:outline-none"/>
-        );
-    }
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+    };
+    return (
+        <Checkbox
+            checked={checked}
+            onChange={handleChange}
+            inputProps={{ 'aria-label': 'primary checkbox' }}
+        />
+    );
 }
-
-export default Checkbox;

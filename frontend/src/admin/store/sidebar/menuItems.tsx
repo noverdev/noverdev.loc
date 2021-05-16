@@ -1,14 +1,14 @@
-import {
-    Adjustments,
-    ChevronDown,
-    ChevronUp,
-    ClipboardCheck,
-    ClipboardList,
-    Home,
-    UserGroup,
-    Users
-} from "heroicons-react";
 import {MenuTypes} from "./types";
+import {
+    Home,
+    Tune,
+    People,
+    Assignment,
+    AssignmentTurnedIn,
+    KeyboardArrowUp,
+    KeyboardArrowDown,
+    Settings,
+} from "@material-ui/icons";
 
 const indexPath = '/admin';
 
@@ -22,36 +22,36 @@ export default [
     {
         type: MenuTypes.itemMenu,
         path: indexPath + '/tasks',
-        icon: ClipboardList,
+        icon: Assignment,
         title: "Tasks",
     },
     {
         type: MenuTypes.itemMenu,
         path: indexPath + '/my-tasks',
-        icon: ClipboardCheck,
+        icon: AssignmentTurnedIn,
         title: "My Tasks",
         counter: 234,
     },
     {
         type: MenuTypes.itemMenuDropdown,
-        icon: Adjustments,
+        icon: Tune,
         title: "Administration",
         dropDownIcons: {
-            up: ChevronUp,
-            down: ChevronDown,
+            up: KeyboardArrowUp,
+            down: KeyboardArrowDown,
         },
         children: [
             {
                 type: MenuTypes.itemMenu,
                 path: indexPath + '/users',
-                icon: Users,
+                icon: People,
                 title: "Users",
                 counter: 4,
             },
             {
                 type: MenuTypes.itemMenu,
                 path: indexPath + '/permissions',
-                icon: Adjustments,
+                icon: Settings,
                 title: "Permissions",
             },
         ]

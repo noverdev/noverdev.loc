@@ -18,8 +18,7 @@ class MenuItem extends React.Component<Props, State> {
             icon = <item.icon size={20} className="mr-3"/>;
         }
         return (
-            <Link to={item.path}
-               className="relative flex items-center mt-1 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+            <Link to={item.path}>
                 {icon} {item.title} {this.renderCounter(item.counter)}
             </Link>
         );
@@ -30,8 +29,8 @@ class MenuItem extends React.Component<Props, State> {
             return null;
         }
         return (
-            <span className="absolute right-2 rounded-min text-white orange px-2 py-1 text-xs font-bold ml-3 flex items-center">
-                [<span className="text-green-600 mx-1">{counter}</span>/<span className="text-white-600 mx-1">{counter}</span>]
+            <span>
+                [<span>{counter}</span>/<span>{counter}</span>]
             </span>
         );
     }

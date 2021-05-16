@@ -1,5 +1,5 @@
 import * as React from "react";
-import ForwardRef from "heroicons-react/build/IconType";
+import {SvgIconComponent} from "@material-ui/icons";
 
 export enum MenuTypes {
     itemTitle = 'itemTitle',
@@ -16,10 +16,8 @@ export interface SidebarItem {
     title: string;
     counter?: number;
     dropDownIcons?: {
-        // @ts-ignore
-        up: ForwardRef;
-        // @ts-ignore
-        down: ForwardRef;
+        up: SvgIconComponent;
+        down: SvgIconComponent;
     };
     children?: SidebarItem[];
 }
