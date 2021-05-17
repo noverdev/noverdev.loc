@@ -25,7 +25,7 @@ class SiteRoutesController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="newRoute" method="POST")
+     * @Route("/new", name="newRoute")
      */
     public function new(): JsonResponse
     {
